@@ -18,7 +18,7 @@ var FrameBridge = (function(){
 
   var processEvent = function(listeners, event){
     try {
-      data = JSON.parse(event.data);
+      var data = JSON.parse(event.data);
       if(data.method && listeners[data.method]){
         var i = 0, methodListeners = listeners[data.method];
         for(;i < methodListeners.length; ++i){
@@ -26,7 +26,7 @@ var FrameBridge = (function(){
         }
       }
     }catch(e) {
-      ('console' in window) && console.error(e);
+      ('console' in window) && console.warn(e);
     }
   };
 
@@ -52,7 +52,7 @@ var FrameBridge = (function(){
           params: params
         }), this.options.targetOrigin);
       }catch(e){
-        // ignore
+        ('console' in window) && console.warn(e);
       }
     },
 
