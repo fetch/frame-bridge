@@ -50,16 +50,32 @@ var FrameBridge = (function() {
     }
   };
 
+  var addEvent = function(obj, event, handler) {
+    if(obj.addEventListener) {
+      obj.addEventListener(event, handler, false);
+    } else if(obj.attachEvent) {
+      obj.attachEvent(event, handler);
+    }
+  };
+
+  var removeEvent = function(obj, event, handler) {
+    if(obj.removeEventListener) {
+      obj.removeEventListener(event, handler);
+    } else if(obj.detachEvent) {
+      obj.detachEvent(event, handler);
+    }
+  };
+
   var startListening = function() {
     listening = true;
     debug('startListening');
-    window.addEventListener('message', processEvent, false);
+    addEvent(window, 'message', processEvent);
   };
 
   var stopListening = function() {
     listening = false;
     debug('stopListening');
-    window.removeEventListener('message', processEvent);
+    removeEvent(window, 'message', processEvent);
   };
 
   var FrameBridge = function(options) {
