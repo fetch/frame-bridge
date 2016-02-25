@@ -1,0 +1,24 @@
+{
+  "name": "frame-bridge",
+  "version": "0.0.1",
+  "description": "Minimal JS frame bridge, using window.postMessage",
+  "main": "src/frame-bridge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fetch/frame-bridge.git"
+  },
+  "keywords": [
+    "frame",
+    "bridge",
+    "postmessage"
+  ],
+  "author": "Koen Punt <koen@fetch.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fetch/frame-bridge/issues"
+  },
+  "homepage": "https://github.com/fetch/frame-bridge"
+}
